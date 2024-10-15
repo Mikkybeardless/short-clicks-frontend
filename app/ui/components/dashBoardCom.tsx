@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { Clipboard, Link as LinkIcon, Trash2 } from 'lucide-react'
+import { Clipboard, Trash2 } from 'lucide-react'
 
 const data = [
   { name: 'Jan', clicks: 400 },

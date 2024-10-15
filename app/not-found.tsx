@@ -12,11 +12,14 @@ export default function NotFound() {
   useEffect(() => { 
 
     document.title = '404 - Page Not Found';
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       document.title = 'ShortClicks APP';
-       router.push('/');
+      router.push('/');
     }, 5000);
-  }, []);
+
+    // Cleanup the timeout when the component is unmounted
+    return () => clearTimeout(timeoutId);
+  }, [router]);
   return (
     <div className='flex flex-col justify-between min-h-screen'>
       <nav className="navbar bg-gradient-to-r from-[#9fafca] to-[#EEEEEE] text-base-300  dark:bg-base-100 mr-auto justify-between">      

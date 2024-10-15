@@ -64,7 +64,7 @@ const Main = () => {
                   <li>Basic analytics</li>
                 </ul>
                 <div className="card-actions justify-center mt-4">
-                  <CardBtn href='auth/signup' text={'Get Started'}/>
+                  <CardBtn href="auth/signup" text={"Get Started"}/>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Main = () => {
                   <li>Custom domains</li>
                 </ul>
                 <div className="card-actions justify-center mt-4">
-                <CardBtn href='auth/signup' text={'Get Started'}/>
+                <CardBtn href="auth/signup" text={"Get Started"}/>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ const Main = () => {
                   <li>API access</li>
                 </ul>
                 <div className="card-actions justify-center mt-4">
-                <CardBtn href='/' text={'Contact Us'}/>
+                <CardBtn href="/" text={"Contact Us"}/>
                 </div>
               </div>
             </div>
