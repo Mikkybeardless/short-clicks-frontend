@@ -1,7 +1,10 @@
 import { ReactNode } from "react";
 // theme type
 export type Theme = "light" | "dark" ;
-
+export type CardProp = {
+  text:string;
+  href: string
+}
   // ThemeProvider props
 export interface ThemeProviderProps {
   children: ReactNode;

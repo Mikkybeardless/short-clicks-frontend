@@ -25,7 +25,8 @@ const SigninForm = () => {
       return;
     }
 try {
-  const data = await handleSignin(email, password);
+     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const data:any = await handleSignin(email, password);
 
   if (data.statusCode !== 200) {
     console.log("Login unsuccessful:", data);

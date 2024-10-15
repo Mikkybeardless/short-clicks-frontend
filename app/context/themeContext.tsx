@@ -8,7 +8,7 @@ import Cookies from "js-cookie"
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 // Hook to use the theme context
-export const useTheme = () => {
+export const useTheme= () => {
   const context = useContext(ThemeContext);
   return context;
 };

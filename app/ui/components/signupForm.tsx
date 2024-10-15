@@ -28,7 +28,8 @@ const SignupForm = () => {
 
     try {
       
-    const data = await handleSignup(email, password, username);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data:any = await handleSignup(email, password, username);
 
     if (data.statusCode !== 201) {
       console.log("Registration unsuccessful:", data);

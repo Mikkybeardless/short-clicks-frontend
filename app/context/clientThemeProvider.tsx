@@ -10,7 +10,7 @@ interface Props {
 }
 
 const ClientThemeProvider: React.FC<Props> = ({ children }) => {
-  const[isMounted, setIsMounted] = useState(false);
+  const[isMounted, setIsMounted] = useState<boolean>(false);
 useEffect(() => {
  setIsMounted(true);
 
