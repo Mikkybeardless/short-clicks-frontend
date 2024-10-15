@@ -1,8 +1,8 @@
-import React from 'react'
-import Footer from '../ui/home/footer'
-import Dashboard from '../ui/components/dashBoardCom'
-import ThemeSwitcher from '../ui/components/themeSwitcher'
-import Link from 'next/link'
+import React from "react"
+import Footer from "../ui/home/footer"
+import Dashboard from "../ui/components/dashBoardCom"
+import ThemeSwitcher from "../ui/components/themeSwitcher"
+import Link from "next/link"
 
 const Page = () => {
   return (

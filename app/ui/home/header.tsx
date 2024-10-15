@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import ThemeSwitcher from '../components/themeSwitcher'
-import DropDownMenu from '../components/dropDownMenu'
-import Menu from '../components/menu'
+import Link from "next/link"
+import ThemeSwitcher from "../components/themeSwitcher"
+import DropDownMenu from "../components/dropDownMenu"
+import Menu from "../components/menu"
 
 const Header = () => {
   return (
@@ -15,7 +15,7 @@ const Header = () => {
       <Menu/>
     </div>
     <div className="navbar-end ">
-      <Link href='/auth/signup' className="md:btn hidden md:bg-[#EEEEEE] md:hover:text-[#EEEEEE] md:outline-none md:border-0 md:text-base-100 ">Get Started</Link>
+      <Link href="/auth/signup" className="md:btn hidden md:bg-[#EEEEEE] md:hover:text-[#EEEEEE] md:outline-none md:border-0 md:text-base-100 ">Get Started</Link>
       <ThemeSwitcher/>
     </div>
     </nav>

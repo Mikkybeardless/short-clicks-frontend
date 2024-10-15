@@ -28,17 +28,17 @@ try {
   const data = await handleSignin(email, password);
 
   if (data.statusCode !== 200) {
-    console.log('Login unsuccessful:', data);
+    console.log("Login unsuccessful:", data);
     setFormData({ ...formData, error: data.message });
     return;
   }
 
-  console.log('Login successful:', data);
-   localStorage.setItem('token', data.access_token);
+  console.log("Login successful:", data);
+   localStorage.setItem("token", data.access_token);
   await new Promise(resolve => setTimeout(resolve, 1000))
-  router.push('/dashboard');
+  router.push("/dashboard");
 } catch (error) {
-  console.error('Login failed:', error);  
+  console.error("Login failed:", error);  
 }
    
   };

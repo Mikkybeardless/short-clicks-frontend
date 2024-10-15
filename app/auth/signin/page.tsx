@@ -1,6 +1,6 @@
 
-import Link from 'next/link'
-import SigninForm from '@/app/ui/components/signinForm'
+import Link from "next/link"
+import SigninForm from "@/app/ui/components/signinForm"
 
 export default function LoginPage() {
 

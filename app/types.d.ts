@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 // theme type
-export type Theme = 'light' | 'dark' ;
+export type Theme = "light" | "dark" ;
 
   // ThemeProvider props
 export interface ThemeProviderProps {

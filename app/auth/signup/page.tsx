@@ -1,6 +1,6 @@
 
-import SignupForm from '@/app/ui/components/signupForm'
-import Link from 'next/link'
+import SignupForm from "@/app/ui/components/signupForm"
+import Link from "next/link"
 
 export default function SignupPage() {
   return (

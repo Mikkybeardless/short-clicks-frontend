@@ -31,17 +31,17 @@ const SignupForm = () => {
     const data = await handleSignup(email, password, username);
 
     if (data.statusCode !== 201) {
-      console.log('Registration unsuccessful:', data);
+      console.log("Registration unsuccessful:", data);
       setFormData({ ...formData, error: data.message });
       return;
     }
 
-    console.log('Registration successful:', data);
-     localStorage.setItem('token', data.access_token);
+    console.log("Registration successful:", data);
+     localStorage.setItem("token", data.access_token);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push("/auth/signin");
     } catch (error) {
-      console.error('Signup failed:', error);
+      console.error("Signup failed:", error);
     }
 
   };

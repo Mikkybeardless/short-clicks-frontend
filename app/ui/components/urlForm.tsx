@@ -25,11 +25,11 @@ const UrlForm = () => {
         const data = await shortenUrl(origUrl)
 
         if ( !data.statusCode || data.statusCode !== 201 ) {
-          console.log('Shortening URL unsuccessful:', data);
+          console.log("Shortening URL unsuccessful:", data);
           setFormData({ ...formData, error: data.message });
           return;
         }
-        console.log('URL successful shortened:', data);
+        console.log("URL successful shortened:", data);
         const { shortUrl } = data.data
       
         setFormData(({

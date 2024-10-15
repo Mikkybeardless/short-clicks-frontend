@@ -1,5 +1,5 @@
-import { createContext, useState, useContext, useEffect } from 'react';
-import { Theme, ThemeContextType, ThemeProviderProps } from '../types';
+import { createContext, useState, useContext, useEffect } from "react";
+import { Theme, ThemeContextType, ThemeProviderProps } from "../types";
 import Cookies from "js-cookie"
 
 
@@ -19,12 +19,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const storedTheme = Cookies.get("theme") as Theme | undefined;
-    const initialTheme = storedTheme || 'light';
+    const initialTheme = storedTheme || "light";
     
       // Extend the expiration every time the user visits
       Cookies.set("theme", initialTheme, { expires: 365 });
     setTheme(initialTheme);
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
   }, []);
 
   const toggleTheme = () => {

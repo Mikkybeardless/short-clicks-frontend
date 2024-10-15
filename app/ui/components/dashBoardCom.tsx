@@ -1,23 +1,23 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { useState } from "react"
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
 import { Clipboard, Trash2 } from 'lucide-react'
 
 const data = [
-  { name: 'Jan', clicks: 400 },
-  { name: 'Feb', clicks: 300 },
-  { name: 'Mar', clicks: 200 },
-  { name: 'Apr', clicks: 278 },
-  { name: 'May', clicks: 189 },
-  { name: 'Jun', clicks: 239 },
+  { name: "Jan", clicks: 400 },
+  { name: "Feb", clicks: 300 },
+  { name: "Mar", clicks: 200 },
+  { name: "Apr", clicks: 278 },
+  { name: "May", clicks: 189 },
+  { name: "Jun", clicks: 239 },
 ]
 
 export default function Dashboard() {
   const [links, setLinks] = useState([
-    { id: 1, original: 'https://www.example.com/very/long/url/1', short: 'https://short.url/abc123', clicks: 145 },
-    { id: 2, original: 'https://www.example.com/another/long/url/2', short: 'https://short.url/def456', clicks: 89 },
-    { id: 3, original: 'https://www.example.com/yet/another/long/url/3', short: 'https://short.url/ghi789', clicks: 217 },
+    { id: 1, original: "https://www.example.com/very/long/url/1", short: "https://short.url/abc123", clicks: 145 },
+    { id: 2, original: "https://www.example.com/another/long/url/2", short: "https://short.url/def456", clicks: 89 },
+    { id: 3, original: "https://www.example.com/yet/another/long/url/3", short: "https://short.url/ghi789", clicks: 217 },
   ])
 
   const [newUrl, setNewUrl] = useState('')
@@ -41,7 +41,7 @@ export default function Dashboard() {
 
   const handleCopy = (url: string) => {
     navigator.clipboard.writeText(url)
-    alert('Copied to clipboard!')
+    alert("Copied to clipboard!")
   }
 
   return (
@@ -84,7 +84,7 @@ export default function Dashboard() {
           <div className="overflow-x-auto">
             <table className="table   w-full">
               <thead>
-                <tr className='dark:text-base-content text-base-200'>
+                <tr className="dark:text-base-content text-base-200">
                   <th>Original URL</th>
                   <th>Short URL</th>
                   <th>Clicks</th>
@@ -93,7 +93,7 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {links.map(link => (
-                  <tr className='' key={link.id}>
+                  <tr key={link.id}>
                     <td className="max-w-xs truncate">{link.original}</td>
                     <td>{link.short}</td>
                     <td>{link.clicks}</td>

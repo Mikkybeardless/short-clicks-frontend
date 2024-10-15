@@ -16,9 +16,9 @@ const ThemeSwitcher = () => {
       type="checkbox"
       value="synthwave"    
       className={`toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1 
-        ${theme === 'dark' ? 'translate-x-3' : 'translate-x-0'} `} />
+        ${theme === "dark" ? "translate-x-3" : "translate-x-0"} `} />
 
-    { theme === 'light' && <svg
+    { theme === "light" && <svg
       className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
       xmlns="http://www.w3.org/2000/svg"
       width="14"
@@ -33,7 +33,7 @@ const ThemeSwitcher = () => {
       <path
         d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
     </svg>}
-    {theme === 'dark' && <svg
+    {theme === "dark" && <svg
       className="stroke-base-100 fill-base-100 col-start-2 row-start-1"
       xmlns="http://www.w3.org/2000/svg"
       width="14"

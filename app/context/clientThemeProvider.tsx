@@ -1,5 +1,5 @@
-// app/ClientThemeProvider.tsx
-'use client'; // Ensures client-side rendering
+
+"use client"; // Ensures client-side rendering
 
 import { ThemeProvider } from '../context/themeContext';
 
