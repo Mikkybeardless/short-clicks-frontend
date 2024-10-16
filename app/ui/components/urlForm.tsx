@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client"
 import { GoCopy } from "react-icons/go";
@@ -22,7 +23,7 @@ const UrlForm = () => {
         e.preventDefault()
         console.log("clicked")
 
-        const data = await shortenUrl(origUrl)
+        const data: any = await shortenUrl(origUrl)
 
         if ( !data.statusCode || data.statusCode !== 201 ) {
           console.log("Shortening URL unsuccessful:", data);
@@ -50,7 +51,7 @@ const UrlForm = () => {
         
     }
 
-    const handleSelect = (e) => {
+    const handleSelect = (e: React.MouseEvent<HTMLInputElement>) => {
       (e.target as HTMLInputElement).select()
     }
 

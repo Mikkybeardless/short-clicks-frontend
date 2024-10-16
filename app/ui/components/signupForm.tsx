@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -28,7 +29,6 @@ const SignupForm = () => {
 
     try {
       
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data:any = await handleSignup(email, password, username);
 
     if (data.statusCode !== 201) {
