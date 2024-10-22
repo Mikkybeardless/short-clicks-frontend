@@ -37,7 +37,8 @@ const SignupForm = () => {
       return;
     }
 
-    console.log("Registration successful:", data);
+    //console.log("Registration successful:", data);
+    alert("Signup successful")
      localStorage.setItem("token", data.access_token);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push("/auth/signin");
@@ -52,12 +53,15 @@ const SignupForm = () => {
     console.log(name, value);
     setFormData({ ...formData, [name]: value });
   };
+
+  const inputStyle = "bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
+
   return (
     <form id="signup" onSubmit={handleSubmit} className="space-y-4 ">
         <div className="form-control">
         <Input
           placeholder="Enter username"
-          className="bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
+          className={`${inputStyle}`}
           value={username}
           onChange={handleChange}
           required
@@ -69,7 +73,7 @@ const SignupForm = () => {
       <div className="form-control">
         <Input
           placeholder="Enter your email"
-          className="bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
+          className={`${inputStyle}`}
           value={email}
           onChange={handleChange}
           required
@@ -80,7 +84,7 @@ const SignupForm = () => {
       <div className="form-control">
         <Input
           placeholder="Enter your password"
-          className="bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
+          className={`${inputStyle}`}
           value={password}
           onChange={handleChange}
           required

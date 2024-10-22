@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
 import { Clipboard, Trash2 } from 'lucide-react'
+import CustomUrlForm from "./customUrlForm"
 
 const data = [
   { name: "Jan", clicks: 400 },
@@ -20,20 +21,8 @@ export default function Dashboard() {
     { id: 3, original: "https://www.example.com/yet/another/long/url/3", short: "https://short.url/ghi789", clicks: 217 },
   ])
 
-  const [newUrl, setNewUrl] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically make an API call to create a new short URL
-    const newLink = {
-      id: links.length + 1,
-      original: newUrl,
-      short: `https://short.url/${Math.random().toString(36).substr(2, 6)}`,
-      clicks: 0
-    }
-    setLinks([...links, newLink])
-    setNewUrl('')
-  }
+ 
 
   const handleDelete = (id: number) => {
     setLinks(links.filter(link => link.id !== id))
@@ -45,8 +34,9 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="min-h-screen text-base-200 dark:text-base-content dark:bg-base-200 p-4">
+    <main className="text-base-200 dark:text-base-content dark:bg-base-200 p-4">
       <div className="container mx-auto">
+        <section id="home" className="min-h-screen ">
         <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -63,23 +53,17 @@ export default function Dashboard() {
             <div className="stat-value">{(links.reduce((sum, link) => sum + link.clicks, 0) / links.length).toFixed(2)}</div>
           </div>
         </div>
-
-        <div className="mb-8">
+        
+        <div className="mb-0 text-center">
           <h2 className="text-2xl font-bold mb-4">Create New Short URL</h2>
-          <form onSubmit={handleSubmit} className="flex gap-2">
-            <input
-              type="url"
-              placeholder="Enter long URL"
-              className="bg-[#EEEEEE] rounded-md h-8 text-base-200 dark:text-[#EEEEEE] px-4 py-5 focus:outline-none dark:input dark:input-bordered w-full flex-grow"
-              value={newUrl}
-              onChange={(e) => setNewUrl(e.target.value)}
-              required
-            />
-            <button type="submit" className="btn btn-primary">Shorten</button>
-          </form>
+         <CustomUrlForm/>
         </div>
+        </section>
 
-        <div className="mb-8">
+      
+
+        <section id="analytics" className="mb-20">
+        <div id="links" className="mb-8">
           <h2 className="text-2xl font-bold mb-4">Your Links</h2>
           <div className="overflow-x-auto">
             <table className="table   w-full">
@@ -111,8 +95,6 @@ export default function Dashboard() {
             </table>
           </div>
         </div>
-
-        <div>
           <h2 className="text-2xl font-bold mb-4">Click Analytics</h2>
           <div className="h-80 bg-base-100 rounded-box p-4">
             <ResponsiveContainer width="100%" height="100%">
@@ -126,7 +108,7 @@ export default function Dashboard() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-        </div>
+        </section>
       </div>
     </main>
   )

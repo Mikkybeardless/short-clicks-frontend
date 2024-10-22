@@ -36,6 +36,24 @@ export  interface SigninFormData {
       
   }
 
+  export interface QRcodeFormData{
+    origUrl: string,
+    qrCode: string[],
+    isRes: boolean,
+    error: string;
+    
+}
+
+  export interface CustomUrlFormData{
+    origUrl: string,
+    customDomain?: string,
+    customSlug?: string,
+    shortenedUrl: string[],
+    isRes: boolean,
+    error: string;
+    
+}
+
   export type InputProps = {
     name: string
     placeholder: string

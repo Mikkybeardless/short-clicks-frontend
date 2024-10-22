@@ -29,6 +29,7 @@ try {
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data:any = await handleSignin(email, password);
 
+  console.log(data)
   if (data.statusCode !== 200) {
     console.log("Login unsuccessful:", data);
     setFormData({ ...formData, error: data.message });
@@ -37,6 +38,7 @@ try {
 
   console.log("Login successful:", data);
    localStorage.setItem("token", data.access_token);
+   alert("Signin successful")
   await new Promise(resolve => setTimeout(resolve, 1000))
   router.push("/dashboard");
 } catch (error) {
