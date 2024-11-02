@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { SignupFormData } from "@/app/types";
 import Input from "./common/input";
 import { handleSignup } from "@/app/lib/api";
+import Spinner from "./common/spinner";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -13,6 +14,7 @@ const SignupForm = () => {
     password: "",
     error: "",
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter();
   const { email, password, username, error } = formData;
 
@@ -28,18 +30,20 @@ const SignupForm = () => {
     console.log("Signing up with:", email, password, username);
 
     try {
-      
+      setIsLoading(true)
     const data:any = await handleSignup(email, password, username);
 
     if (data.statusCode !== 201) {
       console.log("Registration unsuccessful:", data);
+      setIsLoading(false)
       setFormData({ ...formData, error: data.message });
       return;
     }
 
     //console.log("Registration successful:", data);
-    alert("Signup successful")
+     setIsLoading(false)
      localStorage.setItem("token", data.access_token);
+     alert("Signup successful")
     await new Promise((resolve) => setTimeout(resolve, 1000));
     router.push("/auth/signin");
     } catch (error) {
@@ -95,9 +99,9 @@ const SignupForm = () => {
       {error && (
         <div className="alert alert-error shadow-lg transition-all duration-300">
           <div>
-            <svg
+            <svg  onClick={() => setFormData({...formData, error: ""})}
               xmlns="http://www.w3.org/2000/svg"
-              className="stroke-current flex-shrink-0 h-6 w-6"
+              className="stroke-current flex-shrink-0 h-6 w-6 cursor-pointer"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -112,13 +116,14 @@ const SignupForm = () => {
           </div>
         </div>
       )}
-      <div className="form-control mt-6">
+      <div className="form-control mt-6 flex flex-col items-center">
         <button
           type="submit"
           className="btn bg-[#088395] hover:text-[#EEEEEE] outline-none border-0 text-base-100  w-full transition-all duration-300 hover:brightness-110"
         >
           Sign Up
         </button>
+        {isLoading && <Spinner/>}
       </div>
     </form>
   );
