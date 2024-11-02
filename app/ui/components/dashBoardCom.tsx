@@ -14,7 +14,7 @@ const data = [
   { name: "Jun", clicks: 239 },
 ]
 
-export default function Dashboard() {
+export default function Dashboard({user}: {user: string}) {
   const [links, setLinks] = useState([
     { id: 1, original: "https://www.example.com/very/long/url/1", short: "https://short.url/abc123", clicks: 145 },
     { id: 2, original: "https://www.example.com/another/long/url/2", short: "https://short.url/def456", clicks: 89 },
@@ -38,6 +38,7 @@ export default function Dashboard() {
       <div className="container mx-auto">
         <section id="home" className="min-h-screen ">
         <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+        <h2 className="text-2xl font-bold mb-4" >Welcome {user}</h2> 
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div className="stat bg-primary ">

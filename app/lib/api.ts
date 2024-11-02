@@ -87,6 +87,7 @@ export const shortenUrl = async (origUrl: string) => {
 
 
 
+
 export const customUrl = async (token: string | null, origUrl: string, customDomain?: string, customSlug?: string) => {
   const url = `${baseUrl}/urls/user`; // Replace with your API endpoint
 

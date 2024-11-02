@@ -6,6 +6,7 @@ import { SignupFormData } from "@/app/types";
 import Input from "./common/input";
 import { handleSignup } from "@/app/lib/api";
 import Spinner from "./common/spinner";
+import { Success } from "./common/successMessage";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -15,8 +16,10 @@ const SignupForm = () => {
     error: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [message, setMessage] = useState<string>("");
   const router = useRouter();
   const { email, password, username, error } = formData;
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,9 +46,10 @@ const SignupForm = () => {
     //console.log("Registration successful:", data);
      setIsLoading(false)
      localStorage.setItem("token", data.access_token);
-     alert("Signup successful")
+     setMessage("Signup successful")
+     setTimeout(() => setMessage(""), 1000);
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    router.push("/auth/signin");
+    router.replace("/auth/signin");
     } catch (error) {
       console.error("Signup failed:", error);
     }
@@ -62,6 +66,7 @@ const SignupForm = () => {
 
   return (
     <form id="signup" onSubmit={handleSubmit} className="space-y-4 ">
+          { message && <Success message={message}/>}
         <div className="form-control">
         <Input
           placeholder="Enter username"

@@ -6,17 +6,19 @@ import Input from "./common/input";
 import { SigninFormData } from "@/app/types";
 import { handleSignin } from "@/app/lib/api";
 import Spinner from "./common/spinner";
+import { Success } from "./common/successMessage";
 
 
 const SigninForm = () => {
- 
+  const router = useRouter();
   const [formData, setFormData] = useState<SigninFormData>({
     email: "",
     password: "",
     error: "",
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
+
   const { email, password, error } = formData;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,10 +44,12 @@ try {
 
   console.log("Login successful:", data);
    localStorage.setItem("token", data.access_token);
+   const username = data.data.username;
    setIsLoading(false)
-   alert("Signin successful")
+   setMessage("Signin successful")
+   setTimeout(() => setMessage(""), 1000);
   await new Promise(resolve => setTimeout(resolve, 1000))
-  router.push("/dashboard");
+  router.replace(`/dashboard?username=${encodeURIComponent(JSON.stringify(username))}`);
 } catch (error) {
   console.error("Login failed:", error);  
 }
@@ -60,6 +64,7 @@ try {
   };
   return (
     <form id="signin" onSubmit={handleSubmit} className="space-y-4 ">
+     { message && <Success message={message}/>}
       <div className="form-control">
         <Input
           placeholder="Enter your email"

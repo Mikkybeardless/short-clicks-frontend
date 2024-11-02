@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 // theme type
 export type Theme = "light" | "dark" ;
+export type Message = {message: string}
 export type CardProp = {
   text:string;
   href: string
