@@ -9,6 +9,7 @@ import { SigninFormData } from "@/app/types";
 import { handleSignin } from "@/app/lib/api";
 import {AuthSpinner }from "./common/spinner";
 import { Success } from "./common/successMessage";
+import PasswordInput from "./common/passwordInput";
 
 
 const SigninForm = () => {
@@ -84,21 +85,13 @@ try {
         />
       </div>
       <div className="form-control flex-col gap-1">
-        <Input
-          placeholder="Enter your password"
-          className="bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
+        <PasswordInput  placeholder="Enter your password"
           value={password}
           onChange={handleChange}
           required
-          type={isPasswordVisible ? 'text' : 'password'}
           name="password"
           label="Password"
-        />
-        <button  type="button"
-        onClick={handleTogglePasswordVisibility}
-        className="btn bg-[#088395] hover:text-[#EEEEEE] md:text-xl outline-none border-0 text-base-100  w-full transition-all duration-300 hover:brightness-110 mb-3">
-        {isPasswordVisible ? <FaRegEyeSlash/> : <FaRegEye />}
-        </button>
+          />
       </div>
       {error && (
         <div className="alert alert-error shadow-lg transition-all duration-300">

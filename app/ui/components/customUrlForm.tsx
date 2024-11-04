@@ -91,7 +91,7 @@ const CustomUrlForm = () => {
 
   const handleQRcode = async (url: string) => {
     console.log("clicked");
-    const data: QRRes = await generateQRcode(token, url);
+    const data: QRRes | any = await generateQRcode(token, url);
     if (!data.statusCode || data.statusCode !== 200) {
       console.log("Generating QR code unsuccessful:", QRcode);
       setQrData({ ...qrData, qrError: data.message });

@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
-import { FaRegEye } from "react-icons/fa6";
-import { FaRegEyeSlash } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import { SignupFormData } from "@/app/types";
 import Input from "./common/input";
 import { handleSignup } from "@/app/lib/api";
-import {AuthSpinner} from "./common/spinner";
+import { AuthSpinner } from "./common/spinner";
 import { Success } from "./common/successMessage";
+import PasswordInput from "./common/passwordInput";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -17,14 +16,12 @@ const SignupForm = () => {
     password: "",
     error: "",
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
-  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-
+  
 
   const router = useRouter();
   const { email, password, username, error } = formData;
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,27 +35,26 @@ const SignupForm = () => {
     console.log("Signing up with:", email, password, username);
 
     try {
-      setIsLoading(true)
-    const data:any = await handleSignup(email, password, username);
+      setIsLoading(true);
+      const data: any = await handleSignup(email, password, username);
 
-    if (data.statusCode !== 201) {
-      console.log("Registration unsuccessful:", data);
-      setIsLoading(false)
-      setFormData({ ...formData, error: data.message });
-      return;
-    }
+      if (data.statusCode !== 201) {
+        console.log("Registration unsuccessful:", data);
+        setIsLoading(false);
+        setFormData({ ...formData, error: data.message });
+        return;
+      }
 
-    //console.log("Registration successful:", data);
-     setIsLoading(false)
-     localStorage.setItem("token", data.access_token);
-     setMessage("Signup successful")
-     setTimeout(() => setMessage(""), 1000);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    router.replace("/auth/signin");
+      //console.log("Registration successful:", data);
+      setIsLoading(false);
+      localStorage.setItem("token", data.access_token);
+      setMessage("Signup successful");
+      setTimeout(() => setMessage(""), 1000);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      router.replace("/auth/signin");
     } catch (error) {
       console.error("Signup failed:", error);
     }
-
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,17 +63,13 @@ const SignupForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const inputStyle = "bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50"
- 
-  const handleTogglePasswordVisibility = () =>{
-    setIsPasswordVisible((prev) => !prev);
-  }
-
+  const inputStyle =
+    "bg-[#EEEEEE] rounded-md h-8 text-base-200 px-4 py-5 border border-base-100 w-full transition-all duration-300 focus:ring focus:ring-primary/50";
 
   return (
     <form id="signup" onSubmit={handleSubmit} className="space-y-3 ">
-          { message && <Success message={message}/>}
-        <div className="form-control">
+      {message && <Success message={message} />}
+      <div className="form-control">
         <Input
           placeholder="Enter username"
           className={`${inputStyle}`}
@@ -101,26 +93,20 @@ const SignupForm = () => {
         />
       </div>
       <div className="form-control flex-col gap-1">
-        <Input
+        <PasswordInput
           placeholder="Enter your password"
-          className={`${inputStyle}`}
           value={password}
           onChange={handleChange}
           required
-          type={isPasswordVisible ? 'text' : 'password'}
           name="password"
           label="Password"
         />
-         <button  type="button"
-        onClick={handleTogglePasswordVisibility}
-        className="btn bg-[#088395] hover:text-[#EEEEEE] md:text-xl outline-none border-0 text-base-100  w-full transition-all duration-300 hover:brightness-110 mb-3">
-        {isPasswordVisible ? <FaRegEyeSlash/> : <FaRegEye />}
-        </button>
       </div>
       {error && (
         <div className="alert alert-error shadow-lg transition-all duration-300">
           <div>
-            <svg  onClick={() => setFormData({...formData, error: ""})}
+            <svg
+              onClick={() => setFormData({ ...formData, error: "" })}
               xmlns="http://www.w3.org/2000/svg"
               className="stroke-current flex-shrink-0 h-6 w-6 cursor-pointer"
               fill="none"
@@ -144,7 +130,7 @@ const SignupForm = () => {
         >
           Sign Up
         </button>
-        {isLoading && <AuthSpinner/>}
+        {isLoading && <AuthSpinner />}
       </div>
     </form>
   );
