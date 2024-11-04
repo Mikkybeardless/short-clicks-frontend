@@ -1,5 +1,5 @@
-//export const baseUrl = "https://shortclick.onrender.com";
- export const baseUrl = 'http://localhost:8000'
+export const baseUrl = "https://shortclick.onrender.com";
+ //export const baseUrl = 'http://localhost:8000'
 
 // "email": "emmy@gmail.com",
 //"password": "emmy123"
