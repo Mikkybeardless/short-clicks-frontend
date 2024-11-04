@@ -3,7 +3,6 @@
 "use client";
 import { GoCopy } from "react-icons/go";
 import { BsQrCode } from "react-icons/bs";
-
 import { customUrl, generateQRcode } from "@/app/lib/api";
 import { CustomUrlFormData, QRcodeFormData, QRRes } from "@/app/types";
 import { Link as LinkIcon } from "lucide-react";
