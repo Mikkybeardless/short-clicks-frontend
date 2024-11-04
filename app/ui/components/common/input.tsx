@@ -1,6 +1,6 @@
 import { InputProps } from "@/app/types"
 
-const Input = ({ label, name, ...rest }: InputProps) => {
+const Input = ({ label, name, type, ...rest }: InputProps) => {
   return (
     <>
       <label className="label" htmlFor={name}>
@@ -9,7 +9,7 @@ const Input = ({ label, name, ...rest }: InputProps) => {
         <input
         id={name}
         name={name}
-        type={name}
+        type={type}
         {...rest}
       />
     </>

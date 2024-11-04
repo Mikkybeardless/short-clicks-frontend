@@ -1,5 +1,5 @@
- export const baseUrl = "https://shortclick.onrender.com";
-// export const baseUrl = 'http://localhost:8000'
+//export const baseUrl = "https://shortclick.onrender.com";
+ export const baseUrl = 'http://localhost:8000'
 
 // "email": "emmy@gmail.com",
 //"password": "emmy123"
@@ -89,7 +89,7 @@ export const shortenUrl = async (origUrl: string) => {
 
 
 export const customUrl = async (token: string | null, origUrl: string, customDomain?: string, customSlug?: string) => {
-  const url = `${baseUrl}/urls/user`; // Replace with your API endpoint
+  const url = `${baseUrl}/urls/user`; 
 
   const payload = {
     origUrl,
@@ -113,5 +113,31 @@ export const customUrl = async (token: string | null, origUrl: string, customDom
     return data;
   } catch (error) {
     console.error("Shortening failed:", error);
+  }
+};
+
+export const generateQRcode = async (token: string | null, url: string) => {
+  const apiURL = `${baseUrl}/urls/qrcode`; 
+
+  const payload = {
+   url
+  };
+
+  try {
+    const response = await fetch(apiURL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`,
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload), 
+    });
+
+    const data = await response.json();
+    console.log("QRcode successful generated:", data);
+    return data;
+  } catch (error) {
+    console.error("Generation failed:", error);
   }
 };

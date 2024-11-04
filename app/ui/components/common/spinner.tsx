@@ -1,9 +1,16 @@
 // Spinner.js
 
-function Spinner() {
+export const URLSpinner = ()=> {
   return (
-    <div className="w-8 h-8 border-4 border-[#088395] border-t-transparent rounded-full animate-spin"></div>
+    <div className={`w-8 h-8 border-4 border-t-transparent border-white rounded-full animate-spin`}
+    ></div>
   );
 }
 
-export default Spinner;
+export const AuthSpinner = ()=> {
+  return (
+    <div className={`w-8 h-8 border-4 border-t-transparent border-[#088395] rounded-full animate-spin`}
+
+    ></div>
+  );
+}

@@ -38,11 +38,16 @@ export  interface SigninFormData {
   }
 
   export interface QRcodeFormData{
-    origUrl: string,
-    qrCode: string[],
-    isRes: boolean,
-    error: string;
+    qrCode: string,
+    isQR: boolean,
+    qrError: string;
     
+}
+
+export type QRRes ={
+  QrCode: string,
+  message: string,
+  statusCode: number
 }
 
   export interface CustomUrlFormData{
@@ -51,6 +56,7 @@ export  interface SigninFormData {
     customSlug?: string,
     shortenedUrl: string[],
     isRes: boolean,
+    isSpinning: boolean,
     error: string;
     
 }

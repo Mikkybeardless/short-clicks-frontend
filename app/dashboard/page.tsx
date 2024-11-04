@@ -17,6 +17,13 @@ const Page = () => {
       router.replace('/auth/signin')
     }
 
+    const timeoutId = setTimeout(() => {
+    handleLogout()
+    }, 60 * 60 * 1000);
+
+    // Cleanup the timeout when the component is unmounted
+    return () => clearTimeout(timeoutId);
+
   })
 
   
