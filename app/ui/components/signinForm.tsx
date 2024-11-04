@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
-import { FaRegEye } from "react-icons/fa6";
-import { FaRegEyeSlash } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import Input from "./common/input";
 import { SigninFormData } from "@/app/types";
@@ -21,7 +19,7 @@ const SigninForm = () => {
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
-  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+ 
 
   const { email, password, error } = formData;
 
@@ -67,9 +65,7 @@ try {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleTogglePasswordVisibility = () =>{
-    setIsPasswordVisible((prev) => !prev);
-  }
+
   return (
     <form id="signin" onSubmit={handleSubmit} className="space-y-4 ">
      { message && <Success message={message}/>}
