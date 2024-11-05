@@ -33,6 +33,7 @@ export  interface SigninFormData {
       origUrl: string,
       shortenedUrl: string[],
       isRes: boolean,
+      isSpinner: boolean,
       error: string;
       
   }

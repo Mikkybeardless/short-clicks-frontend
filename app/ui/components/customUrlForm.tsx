@@ -59,8 +59,11 @@ const CustomUrlForm = () => {
       ...formData,
       isRes: true,
       isSpinning: false,
-      shortenedUrl: [...formData.shortenedUrl, shortUrl], // Append new URL
-      error: "", // Clear any previous errors if necessary
+      shortenedUrl: [...formData.shortenedUrl, shortUrl], 
+      error: "", 
+      origUrl: "",  
+      customDomain: "",
+      customSlug: "",
     });
     console.log(formData);
   };
@@ -78,7 +81,7 @@ const CustomUrlForm = () => {
 
   const handleCopy = () => {
     const copyText =
-      (document.getElementById("url") as HTMLInputElement)?.value || "";
+      (document.getElementById("shortenedUrl") as HTMLInputElement)?.value || "";
     navigator.clipboard
       .writeText(copyText)
       .then(() => {
@@ -194,6 +197,7 @@ const CustomUrlForm = () => {
                 <input
                   type="text"
                   name="shortenedUrl"
+                  id = "shortenedUrl"
                   value={url}
                   readOnly
                   onClick={handleSelect}

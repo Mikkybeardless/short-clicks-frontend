@@ -33,6 +33,19 @@ export default function Dashboard({user}: {user: string}) {
     alert("Copied to clipboard!")
   }
 
+  const totalClicks = links.reduce((sum, link) => sum + link.clicks, 0) 
+  const averageClicks = () => {
+    const total = (totalClicks / links.length).toFixed(2)
+
+    if (isNaN(Number(total))) {
+      return "0"
+    }
+    return total
+
+  }
+
+
+
   return (
     <main className="text-base-200 dark:text-base-content dark:bg-base-200 p-4">
       <div className="container mx-auto">
@@ -47,11 +60,11 @@ export default function Dashboard({user}: {user: string}) {
           </div>
           <div className="stat bg-secondary ">
             <div className="stat-title text-base-200 dark:text-secondary-content">Total Clicks</div>
-            <div className="stat-value">{links.reduce((sum, link) => sum + link.clicks, 0)}</div>
+            <div className="stat-value">{totalClicks}</div>
           </div>
           <div className="stat bg-accent ">
             <div className="stat-title text-base-200 dark:text-accent-content">Avg. Clicks per Link</div>
-            <div className="stat-value">{(links.reduce((sum, link) => sum + link.clicks, 0) / links.length).toFixed(2)}</div>
+            <div className="stat-value">{averageClicks()}</div>
           </div>
         </div>
         
