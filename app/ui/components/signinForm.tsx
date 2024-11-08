@@ -48,7 +48,7 @@ try {
    localStorage.setItem("token", data.access_token);
    const username = data.data.username;
    setIsLoading(false)
-   setMessage("Signin successful")
+   setMessage("Sign in successful")
    setTimeout(() => setMessage(""), 1000);
   await new Promise(resolve => setTimeout(resolve, 1000))
   router.replace(`/dashboard?username=${encodeURIComponent(JSON.stringify(username))}`);

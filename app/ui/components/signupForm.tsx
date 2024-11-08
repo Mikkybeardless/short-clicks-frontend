@@ -53,7 +53,7 @@ const SignupForm = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       router.replace("/auth/signin");
     } catch (error) {
-      console.error("Signup failed:", error);
+      console.error("Sign up failed:", error);
     }
   };
 

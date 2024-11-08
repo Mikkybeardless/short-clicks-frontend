@@ -165,7 +165,7 @@ const CustomUrlForm = () => {
             </label>
           </div>
         </div>
-        <button className="btn bg-[#EEEEEE] hover:text-white text-base-200 dark:bg-base-300 dark:text-base-content dark:btn-square dark:hover:bg-[#EEEEEE] dark:hover:text-base-200">
+        <button className="btn bg-[#EEEEEE] hover:text-white text-base-200 dark:bg-base-300 dark:text-base-content  dark:hover:bg-[#EEEEEE] dark:hover:text-base-200">
           <LinkIcon className="h-6 w-6 " />
         </button>
       </form>

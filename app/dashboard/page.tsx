@@ -39,7 +39,7 @@ const handleLogout = async () => {
           ShortClicks APP
         </Link>
         <div>
-        <button onClick={handleLogout} className="btn  bg-[#EEEEEE] hover:text-[#EEEEEE] outline-none border-0 text-base-100 ">Log Out</button>
+        <button onClick={handleLogout} className="btn btn-sm md:btn-md  bg-[#EEEEEE] hover:text-[#EEEEEE] outline-none border-0 text-xs md:text-sm text-base-100 ">Log Out</button>
         <ThemeSwitcher />
         </div>
       </nav>

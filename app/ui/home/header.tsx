@@ -15,7 +15,7 @@ const Header = () => {
       <Menu/>
     </div>
     <div className="navbar-end ">
-      <Link href="/auth/signup" className="md:btn hidden md:bg-[#EEEEEE] md:hover:text-[#EEEEEE] md:outline-none md:border-0 md:text-base-100 ">Get Started</Link>
+      <Link href="/auth/signin" className="md:btn hidden md:bg-[#EEEEEE] md:hover:text-[#EEEEEE] md:outline-none md:border-0 md:text-base-100 ">Get Started</Link>
       <ThemeSwitcher/>
     </div>
     </nav>

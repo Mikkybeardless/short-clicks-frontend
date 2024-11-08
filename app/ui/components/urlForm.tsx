@@ -121,7 +121,7 @@ const UrlForm = () => {
                   className="bg-[#EEEEEE] rounded-md h-8 text-base-200 dark:text-[#EEEEEE] px-4 py-5 focus:outline-none dark:input dark:input-bordered w-full"
                 />
                 <button onClick={handleCopy}>
-                  <GoCopy className="text-base-100 test-[1rem] md:text-[2rem]" />
+                  <GoCopy className="text-base-100 test-[1rem] md:text-[2rem] dark:text-white" />
                 </button>
               </div>
             </div>
