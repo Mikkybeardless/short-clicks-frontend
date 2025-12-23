@@ -1,4 +1,4 @@
-export const baseUrl = "https://shortclick.onrender.com";
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
  //export const baseUrl = 'http://localhost:8000'
 
 // "email": "emmy@gmail.com",
@@ -141,3 +141,4 @@ export const generateQRcode = async (token: string | null, url: string) => {
     console.error("Generation failed:", error);
   }
 };
+
